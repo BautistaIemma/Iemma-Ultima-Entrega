@@ -1,0 +1,159 @@
+
+
+
+
+
+// Variables
+
+
+
+// Colores
+
+$color1:#580c0c;
+$color2: #ffffff;
+$color3: black;
+
+
+//Mixin
+
+@mixin display {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+@mixin jugo {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+
+// Map
+
+$titulos:(
+    h2: 20px, 
+    h3: 18px
+);
+
+$h2: map-get($titulos, h2);
+$h3: map-get($titulos, h3);
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $color1;
+    color: $color2;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#grilla {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "principal publicidad"
+        "footer footer";
+    grid-template-rows: 100px auto 140px;
+    grid-template-rows: 80px auto 140px;
+    grid-template-columns: 5fr 1fr;
+    gap: 1em;
+}
+    
+header {
+    background-color: $color1;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+}
+#principal {
+    grid-area: principal;
+    border-right: 1px solid $color3;
+}
+
+main {
+    margin-bottom: 100px;
+}
+
+footer {
+    background-color:$color1;
+    height: 100px;
+}
+
+hr {
+    margin: 50px;
+    border: 1px solid $color1;
+}
+
+.menu {
+
+    display: inline;
+    padding: 20px 20px 20px 20px;
+}
+
+.menu__lista li {
+    display: inline;
+    float: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.menu__lista ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu__lista li a {
+    color: $color3;
+    padding: 15px 15px;
+    @include display;
+}
+
+.titulo_info {
+    font-style: italic;
+    color: $color3;
+    height: 50px;
+    text-align: center;
+    padding: 10px;
+    transition: ease-in 1s;
+
+}
+.titulo_info:hover {font-size: 40px;}
+
+
+.p__info {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    font-weight: 200;
+    width: 90%;
+    font-size: $h2;
+}
+
+
+#tabla_contenido {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    font-size: 1.2em;
+    @include jugo;
+} 
+.tabla_contenido h3 {
+    padding: 1.5vw;
+    font-size: $h3;
+}
+.contenido {
+    width:33.33%;
+    width: 33.33%;
+    padding: 1.2vw;
+    min-width: 100px;
+    min-width: 100px;
+}
